@@ -1,0 +1,26 @@
+<div class="row" ng-controller="favouriteCtr">
+    <div class="col-xs-12"><h2> {{ title }} </h2></div>
+    
+    <div class="col-xs-12" ng-repeat="item in items">
+        <div class="block_montada">
+            <div class="col-xs-3 pull-right favImgBlock">
+                <a href="#!ad_details/{{ item.advertisement_id }}">
+                <img ng-show="item.advertisement_img_url != null" src="{{imgPath}}/{{item.advertisement_img_url}}" class="img_montada">
+                <img ng-show="item.advertisement_img_url == null" src="images/logo.png" class="img_montada">
+                </a>
+            </div>
+            <div class="col-xs-6 pull-right nopadding">
+                <ul class="see_montada">
+                    <li><h3><a href="#!ad_details/{{ item.advertisement_id }}">{{item.advertisement_title}}</a></h3></li><br/>
+                    <li><i class="material-icons dp48">history</i>    منذ: {{ item.advertisement_created_at | elapsed }}</li><br/>
+                    <li><i class="material-icons dp48">build</i> {{ item.departements_title }}</li>                   
+                </ul>
+            </div>
+             <div class="col-xs-2">
+                 <span class="hand_t"><a href="javascript:void(0);" ng-click="removeFromFav(item.adv_favourite_id,$index)">  <i class="material-icons dp48">delete</i></a>  </span>                
+            </div>
+        </div>
+    </div>
+     
+    
+</div>

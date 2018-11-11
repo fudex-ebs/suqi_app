@@ -1,0 +1,61 @@
+<div class="row" ng-controller="supervisorsCtrl">
+    <div class="col-xs-12 col-md-12">
+        <h1 class="tit_gruop"> المشرفين</h1>
+    </div>
+     
+    <div class="col-xs-12 form-group" ng-repeat="item in items">
+<div class="block_super">
+<div class="col-xs-8">
+    <div class="dis_supervisors">
+        <h3>{{ item.supervisors_username }}</h3>
+        <p>{{ item.departements_title }}</p>
+        <a ng-show="loged_user.id != null" class="btn  btn-primary pull-left" 
+           href="javascript:void(0);" data-toggle="modal" data-target="#modalMsg{{ item.supervisors_id }}"> ارسال رسالة خاصة</a>
+    </div>
+</div>
+<div class="col-xs-4">
+    <div class="img_supervisors">
+        <img src="images/splash.png" ng-show="item.supervisors_img_url == '' ">
+        <img src="{{ imgPath }}/{{ item.supervisors_img_url }}" ng-show="item.supervisors_img_url != '' ">
+    </div>
+</div>
+</div>
+        
+        <!-- Modal -->
+<div class="modal fade in myModl" id="modalMsg{{ item.supervisors_id }}" tabindex="-1" role="dialog" 
+     aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">رساله خاصه ل | {{ item.supervisors_username }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+           <form method="post" class="adsFrm">
+             <div class="form-group pmd-textfield">       
+                 <label for="dep_id" class="control-label pmd-input-group-label">عنوان الرسالة</label>
+                  <div class="input-group">                        
+                      <input type="text" name="title_msg" id="title_msg" ng-model="title_msg" class="form-control" required=""/>
+                </div>                
+             </div>
+             <div class="form-group pmd-textfield">       
+                 <label for="dep_id" class="control-label pmd-input-group-label">نص الرسالة</label>
+                  <div class="input-group">                        
+                      <textarea name="message" id="message" ng-model="message" class="form-control" required=""></textarea>
+                </div>                
+             </div>
+        <button type="submit" ng-click="send(item.supervisors_id)" class="btn pmd-ripple-effect btn-success btn-block"> ارسل     </button >
+
+          </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+        
+        
+</div>
+     
+ </div>

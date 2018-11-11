@@ -1,0 +1,62 @@
+<div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form card-contint" ng-controller="messagesSentCtrl">
+<div class="pmd-card-title" style="padding-bottom:15px;">
+
+<form id="contact" method="post" class="form" role="form">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <h1 class="tit_gruop">{{ title }}</h1>
+        </div>
+ 
+
+<div class="dropdown pmd-dropdown clearfix category" style="margin-bottom:15px;">
+      <button  class="btn pmd-ripple-effect btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" 
+               aria-expanded="true"> <span class="caret"></span> اختر قــسم   </button>
+      <ul aria-labelledby="dropdownMenu2" role="menu" class="dropdown-menu">          
+          <li role="presentation"><a href="#!messages" tabindex="-1" role="menuitem">البريد الوارد</a></li>           
+          <li role="presentation"><a href="#!messages_sent" tabindex="-1" role="menuitem">  البريد المرسل</a></li>           
+          <li role="presentation"><a href="#!messages_deleted" tabindex="-1" role="menuitem">الرسائل المحذوفة </a></li>           
+      </ul>
+</div>       
+    
+        <div class="col-xs-12" ng-repeat="item in items">                            
+                <div class="block_montada">
+                    
+                    <div class="col-xs-4 pull-right">
+                        <a href="#!message/{{ item.users_messages_sender_id }}/{{ item.users_messages_adv_id }}/{{ item.users_messages_id }}">
+                    <img src="images/logo.png" class="img_montada" ng-show="item.users_profile_image == null">
+                    <img src="{{ imgPath }}/{{ item.users_profile_image }}" class="img_montada" ng-show="item.users_profile_image != null">
+                        </a>
+                    <br/>
+                    <span class="senderName">{{ item.users_full_name }}</span>
+                </div>
+                <div class="col-xs-8 pull-right nopadding">
+                    <h3><a href="#!message/{{ item.users_messages_sender_id }}/{{ item.users_messages_adv_id }}/{{ item.users_messages_id }}">
+                            <span ng-if="item.users_messages_title == '' ">بغير عنوان</span> {{ item.users_messages_title }}</a></h3>
+                    <ul class="see_montada">                        
+                        <li><i class="material-icons dp48">history</i> منذ: {{ item.users_messages_created_at | elapsed }} </li>                                                
+                    </ul>
+                </div>
+                 
+                    <div class="col-xs-12" style="margin-top: -8px;">
+                    <ul class="oper2">                        
+                        <li><a href="#!ad_details/{{ item.users_messages_adv_id }}"> صفحة الاعلان</a></li>
+<!--                        <li style="margin-top: -10px;"><span class="hand_t">
+                                <a href="javascript:void(0);" ng-click="deleteMsg(item.users_messages_id,$index)"> <i class="material-icons dp48">delete</i></a>  </span>                    </li>-->
+                    </ul>                                       
+                </div>
+            </div>
+        </div>
+         
+         
+         
+
+
+    </div>
+
+    <br>
+
+</form>
+
+
+</div>
+</div>

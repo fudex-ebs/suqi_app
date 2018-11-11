@@ -1,0 +1,166 @@
+<div ng-controller="addAdCrtl">
+<h2 class="pmd-card-title-text">{{title}}</h2><br/>
+
+
+    <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form card-contint">
+    <div class="pmd-card-title" style="padding-bottom:15px;">
+        
+        
+        <form method="post" id="myFrm" class="adsFrm">
+             <div class="form-group pmd-textfield">       
+                 <label for="dep_id" class="control-label pmd-input-group-label">القسم</label>
+                  <div class="input-group">                        
+                        <select name="dep_id" class="form-control" id="dep_id" ng-model="dep_id"           
+                                ng-init=" cat = categories[1].id"  required="" ng-change="getDept()"
+                        ng-options="cat.id as cat.title for cat in categories">  
+                         <option value="">  اختر قسم     </option>
+                     </select>
+                </div>                
+           </div>
+          
+      <div class="form-group pmd-textfield">
+        <label for="adv_type" class="control-label pmd-input-group-label">نوع الاعلان</label>
+        <div class="input-group">                
+            <input type="radio" name="adv_type" ng-model="adv_type" value="offer" checked=""/> عرض
+            <input type="radio" name="adv_type" ng-model="adv_type" value="request" /> طلب
+            <input type="radio" name="adv_type" ng-model="adv_type" value="rent" /> ايجار
+        </div>
+      </div>
+      <div class="form-group pmd-textfield">
+        <label for="title" class="control-label pmd-input-group-label">عنوان الاعلان</label>
+        <div class="input-group">                
+                <input type="text" class="form-control" id="title" ng-model="title_ad" required="">
+        </div>
+      </div>
+      <div class="form-group pmd-textfield">
+        <label for="img_url" class="control-label pmd-input-group-label">الصورة الافتراضية  </label>
+        <div class="input-group">                
+                <input type="file" class="form-control" id="img_url" ng-model="img_url"  fileread="img_url" required="">
+        </div>
+      </div>
+           
+     <div class="form-group pmd-textfield">       
+            <label for="region" class="control-label pmd-input-group-label">المنطقة</label>
+             <div class="input-group">                        
+                   <select name="region" class="form-control" id="region" ng-model="region"           
+                           ng-init=" region = regions[1].id"  ng-change="getCity()" required=""
+                   ng-options="region.id as region.region_name for region in regions">  
+                    <option value="">  اختر منطقة     </option>
+                </select>
+           </div>                
+      </div>
+            
+        <div class="form-group pmd-textfield">       
+            <label for="city" class="control-label pmd-input-group-label">المدينة</label>
+             <div class="input-group">                        
+                   <select name="city" class="form-control" id="city" ng-model="city"
+                           ng-init=" city = cities[1].id" 
+                   ng-options="city.id as city.name for city in cities">  
+                    <option value="">  اختر مدينة     </option>
+                </select>
+           </div>                
+      </div>
+            
+    <div class="form-group pmd-textfield">
+        <label for="contact_mobile" class="control-label pmd-input-group-label">جوال للتواصل</label>
+        <div class="input-group">                
+                <input type="tel" class="form-control" id="contact_mobile" ng-model="contact_mobile" required="">
+        </div>
+      </div>
+    
+            <div id="mobiles-computer-section" style="display: none">
+                <div class="form-group pmd-textfield">       
+                    <label for="dep_departement_id" class="control-label pmd-input-group-label">القسم   </label>
+                     <div class="input-group">                        
+                           <select name="dep_departement_id" class="form-control" id="dep_departement_id" ng-model="dep_departement_id"           
+                                   ng-init=" dep_departement_id = dep_departement_ids[1].id"  ng-change="getMobileCompanies()"
+                           ng-options="dep_departement_id.id as dep_departement_id.name for dep_departement_id in dep_departement_ids">  
+                            <option value="">  اختر القسم    </option>
+                        </select>
+                   </div>                
+              </div>
+                
+                <div class="form-group pmd-textfield" id="mobile-comp" style="display: none">       
+                    <label for="company_departement_id" class="control-label pmd-input-group-label">الشركة   </label>
+                     <div class="input-group">                        
+                           <select name="company_departement_id" class="form-control" id="company_departement_id" ng-model="company_departement_id"           
+                                   ng-init=" company_departement_id = company_departement_ids[1].id" 
+                           ng-options="company_departement_id.id as company_departement_id.name for company_departement_id in company_departement_ids">  
+                            <option value="">  اختر الشركة    </option>
+                        </select>
+                   </div>                
+              </div>
+            </div>
+             
+            <div id="cars-section" style="display: none;">
+                <h3 class="separate">تفاصيل الاعلان </h3>
+                <div class="form-group pmd-textfield">       
+                    <label for="car_status" class="control-label pmd-input-group-label">حالة السيارة </label>
+                     <div class="input-group">                        
+                           <select name="car_status" class="form-control" id="car_status" ng-model="car_status"           
+                                   ng-init=" status = all_status[1].id"
+                           ng-options="status.id as status.title for status in all_status">  
+                            <option value="">  اختر حالة السيارة     </option>
+                        </select>
+                   </div>                
+              </div>
+                <div class="form-group pmd-textfield">       
+                    <label for="company_id" class="control-label pmd-input-group-label">الشركة   </label>
+                     <div class="input-group">                        
+                           <select name="company_id" class="form-control" id="company_id" ng-model="company_id"           
+                                   ng-init=" company = companies[1].id" ng-change="getCompanyType()"
+                           ng-options="company.id as company.name for company in companies">  
+                            <option value="">  اختر الشركة    </option>
+                        </select>
+                   </div>                
+              </div>
+                
+            <div class="form-group pmd-textfield">       
+                    <label for="departement_type_id" class="control-label pmd-input-group-label">النوع   </label>
+                     <div class="input-group">                        
+                           <select name="departement_type_id" class="form-control" id="departement_type_id" ng-model="departement_type_id"           
+                                   ng-init=" company_departement = company_departements[1].id" ng-change="getModel()"
+                           ng-options="company_departement.id as company_departement.name for company_departement in company_departements">  
+                            <option value="">  اختر النوع    </option>
+                        </select>
+                   </div>                
+              </div>
+                
+                <div class="form-group pmd-textfield">       
+                    <label for="model_id" class="control-label pmd-input-group-label">الموديل   </label>
+                     <div class="input-group">                        
+                           <select name="model_id" class="form-control" id="model_id" ng-model="model_id"           
+                                   ng-init=" model = models[1].id" 
+                           ng-options="model.id as model.year for model in models">  
+                            <option value="">  اختر الموديل    </option>
+                        </select>
+                   </div>                
+              </div>
+                
+            </div>
+            
+     <div class="form-group pmd-textfield">
+        <label for="adv_sub_type" class="control-label pmd-input-group-label">اعلان ؟  </label>
+        <div class="input-group">                
+            <input type="radio" name="adv_type" ng-model="adv_sub_type" value="sell" /> عرض
+            <input type="radio" name="adv_type" ng-model="adv_sub_type" value="buy" /> طلب            
+        </div>
+      </div>
+     
+
+      <div class="form-group pmd-textfield">
+        <label for="description" class="control-label pmd-input-group-label">محتوى الاعلان</label>
+        <div class="input-group">                
+            <textarea required class="form-control" ng-model="description" id="description"></textarea>
+        </div>
+      </div>
+
+
+            <button type="submit" ng-click="insertData()" class="btn pmd-ripple-effect btn-success btn-block"> أضف اعلان   </button >
+    </form>
+
+
+    </div>
+</div>
+
+</div>

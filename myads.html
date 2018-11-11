@@ -1,0 +1,32 @@
+<div ng-controller="myAdsCtr">
+  
+<div class="clearfix" style="background:#fff; margin-bottom:15px;" >
+
+<div class="col-xs-12">
+<h2> {{ title }} </h2>
+</div>
+
+    <p class="text-center" ng-show="items.length <1"> لم تقم باضافة اعلانات بعد </p>
+    
+<div class="col-xs-6 small-item" ng-repeat="item in items">
+<div class="pmd-card pmd-card-default pmd-z-depth">
+    <div class="pmd-card-media">
+        <a href="#!ad_details/{{item.advertisement_id}}">
+            <img width="1184" height="666" class="img-responsive animated zoomIn" src="{{imgPath}}/{{item.advertisement_img_url}}" ng-show="item.advertisement_img_url != null">
+            <img width="1184" height="666" class="img-responsive animated zoomIn" src="images/logo.png" ng-show="item.advertisement_img_url == null">
+        </a>
+    </div>
+    <div class="pmd-card-title clearfix itm1">
+        <h3 class="pmd-card-title-text"><a href="#!ad_details/{{item.advertisement_id}}"> {{item.advertisement_title}}
+</h3>
+        <span class="pmd-card-subtitle-text"> {{ item.departements_title }} </span>
+        <span class="pull-right region">  <i class="material-icons tiny">location_on</i> {{ item.region_region_name }} </span>
+    </div>
+</div>
+</div>
+ 
+
+</div>
+ 
+
+</div>

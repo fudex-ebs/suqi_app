@@ -1,0 +1,77 @@
+<div ng-controller="homeCtrl">
+    
+    <form method="get" class="form searchFrm" role="form">
+        <div class="row">                                          
+            <div class="col-xs-12 col-md-3 form-group">
+                <input class="form-control form_group" id="searchTxt" name="searchTxt" ng-model="searchTxt" placeholder="بحث عن سلعه " type="text">
+            </div>
+            <div class="col-xs-9 col-md-3 form-group" style="float: right;">                
+                    <select name="dep_id" class="form-control form_group" id="dep_id" ng-model="dep_id"           
+                                ng-init=" cat = categories[1].id"  required="" ng-change="getDept()"
+                        ng-options="cat.id as cat.title for cat in categories">  
+                         <option value="">  اختر قسم     </option>
+                     </select>
+            </div>
+            <div class="col-xs-3 col-md-12 form-group searchDiv">
+                <button class="btn btn-primary pull-right" type="submit" name="group_register" ng-click="search(searchTxt,dep_id)">بحث </button>                                    
+            </div>
+
+        </div>
+
+        <br>         
+    </form>
+ 
+    <div style="margin-top: -20px;">   
+    <div class="pmd-card pmd-card-default pmd-z-depth" ng-repeat="item in items" >
+  	<!-- Card header -->
+      <div class="pmd-card-title text-right">
+          <span class="pull-left">  {{item.region_region_name}} <i class="material-icons tiny">location_on</i></span>
+          <br/>
+          <div class="media-ava">
+              <a href="javascript:void(0);" class="avatar-list-img pull-right"> 
+                  <img width="40" height="40" src="{{imgPath}}{{item.users_profile_image}}" class="imgItm"  ng-show="item.users_profile_image != null">
+                  <img width="40" height="40" src="images/logo.png" class="imgItm animated" ng-show="item.users_profile_image == null">                   
+              </a>
+              
+              <h3 class="pmd-card-title-text"> {{item.users_full_name}}</h3>
+              <span class="pmd-card-subtitle-text"> منذ: {{ item.advertisement_created_at | elapsed }}  </span>
+                
+          </div>
+
+          <div class="pmd-card-body"> <a href="#!ad_details/{{item.advertisement_id}}">{{item.advertisement_title}}</a></div>
+         
+      </div>
+
+      <!-- Card media -->
+      <div class="pmd-card-media2">
+           <a href="#!ad_details/{{item.advertisement_id}}">
+            <img width="1184" height="666" class="img-responsive animated zoomIn" src="{{imgPath}}{{item.advertisement_img_url}}" 
+                 ng-show="item.advertisement_img_url != null">
+           </a>
+      </div>
+
+      <!-- Card body -->
+
+      <!-- Card actions -->
+      <div class="pmd-card-actions clearfix">
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button"> <i class="material-icons tiny">thumb_up</i></button>
+<!--        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button"> 3 <i class="material-icons tiny">thumb_down</i></button>-->
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button">  <i class="material-icons tiny">comment</i></button>
+        
+        <a href="javascript:void(0);" class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right"  ng-click="addToFav(item.advertisement_id)">  <i class="material-icons tiny">favorite</i></a>
+        
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-left" type="button" ng-show="item.advertisement_img_url == null"
+                ng-click="shareLink(item.advertisement_title,item.advertisement_id);"> شارك <i class="material-icons tiny">share</i></button>            
+                
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-left" type="button" ng-show="item.advertisement_img_url != null"
+                ng-click="shareLinkImg(item.advertisement_title,item.advertisement_id,item.advertisement_img_url);"> شارك <i class="material-icons tiny">share</i></button>                
+    
+      </div>
+  </div>
+
+    </div>
+ 
+
+
+    
+</div>

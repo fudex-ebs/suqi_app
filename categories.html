@@ -1,0 +1,22 @@
+<div class="row" ng-controller="categoriesCtrl">
+
+<div class="col-xs-6 small-item catDv" ng-repeat="cat in categories">
+<div class="pmd-card pmd-card-default pmd-z-depth">
+    <div class="pmd-card-media2 catImgDv">
+       <a href="#!category/{{cat.id}}"> 
+           <img width="1184" height="666" class="img-responsive animated zoomIn" src="{{imgPath}}{{cat.sidebar_img}}"> </a>
+    </div>
+    <div class="pmd-card-title clearfix">
+        <h3 class="pmd-card-title-text text-center"><a href="#!category/{{cat.id}}"> {{cat.title}}</h3>
+        <!--<span class="pmd-card-subtitle-text">النشاط : المقاولات</span>-->
+        <!--<span class="pull-right">  الرياض <i class="material-icons tiny">location_on</i></span>-->
+    </div>
+</div>
+</div>
+
+
+
+    
+    
+    
+</div>

@@ -1,0 +1,80 @@
+<div ng-controller="updateProfileCrtl">
+<h2 class="pmd-card-title-text">{{title}}</h2><br/>
+
+
+    <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form card-contint">
+    <div class="pmd-card-title" style="padding-bottom:15px;">
+        
+        
+        <form method="post" id="myFrm" class="adsFrm">
+            <div class="form-group pmd-textfield">
+            <label for="company_name" class="control-label pmd-input-group-label">اسم الشركة  </label>
+            <div class="input-group">                
+                <input type="text" class="form-control" id="company_name" ng-model="company_name"  required="">
+            </div>
+          </div>
+            
+        <div class="form-group pmd-textfield">       
+            <label for="company_activity" class="control-label pmd-input-group-label">نشاط الشركة</label>
+             <div class="input-group">                        
+                   <select name="company_activity" class="form-control" id="company_activity" ng-model="company_activity"           
+                           ng-init=" cat = categories[1].id"  required=""
+                   ng-options="cat.id as cat.title for cat in categories">  
+                    <option value="">  اختر قسم     </option>
+                </select>
+           </div>                
+      </div>
+        <div class="form-group pmd-textfield">
+            <label for="full_name" class="control-label pmd-input-group-label">الاسم    </label>
+            <div class="input-group">                
+                <input type="text" class="form-control" id="full_name" ng-model="full_name" required="">
+            </div>
+          </div>
+          <div class="form-group pmd-textfield">
+            <label for="email" class="control-label pmd-input-group-label">البريد الالكترونى    </label>
+            <div class="input-group">                
+                <input type="email" class="form-control" id="email" ng-model="email" required="">
+            </div>
+          </div>  
+          <div class="form-group pmd-textfield">
+            <label for="password" class="control-label pmd-input-group-label">كلمة المرور      </label>
+            <div class="input-group">                
+                <input type="password" class="form-control" id="password" ng-model="password" >
+            </div>
+          </div> 
+             <div class="form-group pmd-textfield">
+            <label for="confirm_password" class="control-label pmd-input-group-label">تأكيد كلمة المرور      </label>
+            <div class="input-group">                
+                <input type="password" class="form-control" id="confirm_password" ng-model="confirm_password" >
+            </div>
+          </div> 
+            <div class="form-group pmd-textfield">
+            <label for="mobile" class="control-label pmd-input-group-label"> الجوال      </label>
+            <div class="input-group">                
+                <input type="tel" class="form-control" id="mobile" ng-model="mobile" required="">
+            </div>
+          </div>  
+            
+    
+      <div class="form-group pmd-textfield">
+        <label for="gender" class="control-label pmd-input-group-label">النوع  </label>
+        <div class="input-group">                
+            <input type="radio" name="gender" ng-model="gender" value="male" checked=""/> ذكر
+            <input type="radio" name="gender" ng-model="gender" value="female" /> أنثى           
+        </div>
+      </div>
+      <div class="form-group pmd-textfield">
+        <label for="profile_image" class="control-label pmd-input-group-label">الصورة الشخصية  </label>
+        <div class="input-group">                            
+            <input type="file" class="form-control" id="profile_image" ng-model="profile_image" fileread="profile_image" />
+        </div>
+      </div>             
+
+            <button type="submit" ng-click="update()" class="btn pmd-ripple-effect btn-success btn-block"> تعديل  </button >
+    </form>
+
+
+    </div>
+</div>
+
+</div>

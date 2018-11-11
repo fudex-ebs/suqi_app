@@ -1,0 +1,55 @@
+<div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form card-contint" ng-controller="groupsCtrl">
+<div class="pmd-card-title" style="padding-bottom:15px;">
+
+    <form id="contact" method="post" class="form" role="form">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h1 class="tit_gruop">صفحة القروبات</h1>
+            </div>
+            <div class="col-xs-12 col-md-3 form-group">                
+                   <select name="dep_id" class="form-control form_group" id="dep_id" ng-model="dep_id"           
+                                ng-init=" cat = categories[1].id"  required="" 
+                        ng-options="cat.id as cat.title for cat in categories">  
+                         <option value="">  اختر قسم     </option>
+                     </select>
+            </div>
+
+            <div class="col-xs-12 col-md-3 form-group">
+                <input class="form-control form_group" id="name" name="mobile" placeholder="رقم الجوال * " type="tel" ng-model="mobile" required="">
+            </div>
+
+            <div class="col-xs-12 col-md-3 form-group">
+                <select name="region" class="form-control form_group" id="region" ng-model="region"           
+                                ng-init=" region = regions[1].id"  required="" ng-change="getCities()"
+                        ng-options="region.id as region.region_name for region in regions">  
+                         <option value="">جميع المناطق * </option>
+                </select>
+                 
+            </div>
+
+            <div class="col-xs-12 col-md-3 form-group">
+                <select name="city" class="form-control form_group" id="city" ng-model="city"
+                           ng-init=" city = cities[1].id" 
+                   ng-options="city.id as city.name for city in cities">  
+                    <option value="">  اختر مدينة     </option>
+                </select>
+            </div>
+
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 form-group">
+                <button class="btn btn-primary pull-right" type="submit" name="group_register"  ng-click="registerGroup()" >سجل الآن</button>
+                <button style="margin-right: 5px;background-color: red;border-color: red;" class="btn btn-primary pull-right" 
+                        type="submit" name="group_cancel" ng-click="deleteRegister()"> إلغاء الإشتراك</button>
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>
+</div>
