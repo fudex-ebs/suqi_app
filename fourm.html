@@ -1,0 +1,78 @@
+<div ng-controller="fourmCtrl">
+    
+    <div class="pmd-card-title posty">        
+        <br/>
+            <div class="media-ava" style="margin-bottom:15px;">
+                          <a href="javascript:void(0);" class="avatar-list-img pull-right">
+                              <img width="40" height="40" src="{{imgPath}}{{item.users_profile_image}}"  ng-show="item.users_profile_image != null" class="imgItm">
+                              <img width="40" height="40" src="images/logo.png" ng-show="item.users_profile_image == null" class="imgItm">                   
+                          </a>
+                          <h3 class="pmd-card-title-text"> {{item.users_full_name}} </h3>
+                          <span class="pmd-card-subtitle-text"> منذ: {{ item.forum_created_at | elapsed }} </span>
+            
+                      </div>
+        
+    <h3>{{item.forum_title}}</h3>
+    
+        <p data-ng-bind-html="item.forum_description | htmlSafe"></p>
+                <div class="pmd-card-actions clearfix">
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button"> 50 <i class="material-icons tiny">thumb_up</i></button>
+        <!--<button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button"> 3 <i class="material-icons tiny">thumb_down</i></button>-->
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button"> 10 <i class="material-icons tiny">comment</i></button>
+  
+        <a href="javascript:void(0);" class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right"  ng-click="addToFav(item.forum_id)"> 3 <i class="material-icons tiny">favorite</i></a>
+           <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-left" type="button" 
+                ng-click="shareLink(item.forum_title,item.forum_id);"> شارك <i class="material-icons tiny">share</i></button>            
+                
+      </div>
+         
+        <hr/>  
+        <div ng-show="loged_user.id != null">
+<h3> أضف تعليق </h3>
+<div class="row addComment">
+    <div class="pmd-card-title posty">
+            <div class="media-ava" style="margin-bottom:15px;">
+                <a href="javascript:void(0);" class="avatar-list-img pull-right">
+                    <img width="40" height="40" src="{{imgPath}}{{loged_user.profile_image}}"  ng-show="loged_user.profile_image != null" class="imgItm ">
+                    <img width="40" height="40" src="images/logo.png" ng-show="loged_user.profile_image == null" class="imgItm ">                   
+                </a><br/>
+                <h3 class="pmd-card-title-text commentAddName"> {{loged_user.full_name}} </h3>            
+            </div>
+    </div>
+    <form method="post" class="frmAddComment">
+        <div class="form-group pmd-textfield">
+        <label for="comment" class="control-label pmd-input-group-label"> تعليقك</label>
+        <div class="input-group">                
+            <textarea required class="form-control" ng-model="comment" id="comment" ></textarea>
+        </div>
+      </div>
+        <button type="submit" ng-click="sendComment()" class="btn pmd-ripple-effect btn-success btn-block"> أرسل  </button >
+    </form>
+
+</div>
+        </div>
+
+<h3> التعليقات </h3>
+    <div class="row">
+        <p ng-show="comments.length < 1">لم تتم اضافة اى تعليقات على هذا الاعلان بعد.</p>
+        <div class="pmd-card-title" ng-repeat="comment in comments">
+          <div class="media-ava" style="margin-bottom:15px;">
+              <a href="javascript:void(0);" class="avatar-list-img pull-right">
+                  <img width="40" height="40" src="{{imgPath}}{{comment.users_profile_image}}" ng-show="comment.users_profile_image != null" class="imgItm ">
+                  <img width="40" height="40" src="images/logo.png" ng-show="comment.users_profile_image == null" class="imgItm ">
+              </a>
+              <h3 class="pmd-card-title-text" ng-show="comment.users_full_name != null"> {{comment.users_full_name}} </h3>
+              <h3 class="pmd-card-title-text" ng-show="comment.users_full_name == null"> غير معرف </h3>
+              <span class="pmd-card-subtitle-text"> منذ: {{comment.forum_comments_comment_date | elapsed}} </span>
+            </div>
+            <p>{{comment.forum_comments_comment}}</p>
+      </div>
+
+    </div>
+
+
+                </div>
+    
+</div>
+
+                

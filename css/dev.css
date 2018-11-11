@@ -1,0 +1,193 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/04/2018, 11:10:25 م
+    Author     : Mayada
+*/
+
+.mySplash{
+    position: relative;
+}
+.mySplash .copy-right{
+    top: 350px;
+}
+.mySplash a.terms{
+    color: #FFF;
+}
+.contactFrm .pmd-textfield .form-control,
+.adsFrm .pmd-textfield .form-control{
+    color: #1668ae !important;
+}
+.titleFrm{
+    color: #8dc641 !important;
+}
+
+.category .pmd-dropdown-menu-bg{
+    width: 100% !important;
+}
+.category .dropdown-menu li{
+    padding-bottom: 0px !important;
+}
+.dividr{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.dropdown-menu{
+    text-align: right;
+}
+.dropdown-menu li{
+    padding-bottom: 10px;
+}
+.dropdown-menu li a{
+    color: #1668ae !important;
+}
+.dropdown-menu li a i{
+    padding-left: 6px;
+    /*color: #8dc641 !important;*/
+}
+.adsFrm .input-group{
+    width: 100%;
+}
+.adsFrm label{
+    margin-right: -40px;
+}
+.pmd-sidebar .pmd-sidebar-nav li a{
+    color: #1668ae !important;
+}
+.pmd-sidebar-nav .material-icons{
+    color: #1668ae !important;
+}
+.separate{
+    color: #8dc641 !important;
+    text-align: center;
+    font-weight: bold;
+}
+
+.imgItm{
+    border: 1px solid #DCDCDC;
+    border-radius: 100%;
+    padding: 4px;
+    width: 100%;
+    height: 100%;
+}
+.itm1{
+    margin-right: -23px;
+    font-size: 14px;
+}
+.itm1 .region{
+    font-size: 11px;
+}
+.commentAddName{
+    clear: both;
+    float: right;
+}
+.frmAddComment{
+    margin-top: -50px;   
+}
+.frmAddComment textarea{
+    color: #000;
+    padding: 17px !important;
+}
+.favImgBlock{
+    margin-left: 10px;
+}
+.see_montada{
+    float: right;
+}
+.hand_edit i{
+    color: blue;
+    font-size: 17px;
+}
+.searchFrm .form_group{
+    height: 37px;
+}
+.searchDiv{
+    margin-left: 12px;
+    margin-top: -51px;
+}
+.searchDiv button{
+    min-width: 60px;
+}
+.catDv{
+    height: 240px;
+}
+.catImgDv{
+    height: 150px;
+}
+.rep-btn{
+    margin-top: 10px;
+} 
+.block_montada{
+    background: #DCDCDC;
+    width: 111%;
+    margin-right: -13px;
+}
+.modal-backdrop {
+    /* bug fix - no overlay */    
+    display: none;    
+}
+.modal-content{
+    direction: rtl;
+    text-align: right;
+}
+.myModl .close{
+    float: left;
+    margin-top: -20px;
+    margin-left: -3px;
+    border-radius: 100%;
+    border: 1px solid #000;
+    padding: 0px 3px;
+}
+.notifi{
+    color: red;
+}
+.oper2{
+    list-style: none;
+    float: left;
+}
+.oper2 li{
+    display: inline;
+    float: right;
+}
+.senderName{
+    float: right;
+    margin-top: -18px;
+    margin-right: 13px;
+    text-align: center;
+}
+.readMsg ,.msgItm {
+    background: #f6fafd;
+}
+.msgItm{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+/* ************** Animation ************* */
+.container {
+	-webkit-transition: -webkit-transform 1s;
+	-webkit-perspective: 600px;
+}
+.container .flip {
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all 1s ease-in-out;
+}
+.container .flip.ng-enter {
+    -webkit-transform: rotateY(-180deg);
+}
+.container .flip.ng-enter-active {
+	-webkit-transform: rotateY(0deg);
+}
+.container .flip.ng-leave {
+	-webkit-transform: rotateY(0deg);
+}
+.container .flip.ng-leave-active {
+	-webkit-transform: rotateY(180deg);
+}
+
+/* ************** End Animation ************* */
+
+

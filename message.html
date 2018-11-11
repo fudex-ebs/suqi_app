@@ -1,0 +1,55 @@
+<div ng-controller="messageCtrl">
+    
+    <div class="pmd-card-title posty">
+        <span class="pull-left">  <a href="#!ad_details/{{adv.id}}"><u>{{adv.title}}</u></a>
+            <i class="material-icons tiny">notification_important</i></span>
+        <br/> <br/>
+        <div ng-repeat="item in items" class="msgItm">
+            <div class="media-ava" style="margin-bottom:15px;">
+                    <a href="javascript:void(0);" class="avatar-list-img pull-right">
+                        <img width="40" height="40" src="{{imgPath}}{{item.users_profile_image}}"  ng-show="item.users_profile_image != null" class="imgItm">
+                        <img width="40" height="40" src="images/logo.png" ng-show="item.users_profile_image == null" class="imgItm">                   
+                    </a>
+                    <h3 class="pmd-card-title-text"> {{item.users_full_name}} </h3>
+                    <span class="pmd-card-subtitle-text"> منذ: {{ item.users_messages_created_at | elapsed }} </span>
+
+                </div>
+    
+        <p data-ng-bind-html="item.users_messages_message | htmlSafe"></p>
+        </div>
+         
+         
+        <hr/>
+        <div ng-show="loged_user.id != null">
+<h3> أرسل رسالة   </h3>
+<div class="row addComment">
+    <div class="pmd-card-title posty">
+            <div class="media-ava" style="margin-bottom:15px;">
+                <a href="javascript:void(0);" class="avatar-list-img pull-right">
+                    <img width="40" height="40" src="{{imgPath}}{{loged_user.profile_image}}"  ng-show="loged_user.profile_image != null" class="imgItm ">
+                    <img width="40" height="40" src="images/logo.png" ng-show="loged_user.profile_image == null" class="imgItm ">                   
+                </a><br/>
+                <h3 class="pmd-card-title-text commentAddName"> {{loged_user.full_name}} </h3>            
+            </div>
+    </div>
+    <form method="post" class="frmAddComment">
+        <div class="form-group pmd-textfield">        
+        <div class="input-group">                
+            <textarea required class="form-control" ng-model="message" id="message" placeholder="رسالتك"></textarea>
+        </div>
+      </div>
+        <button type="submit" ng-click="send(adv.user_id)" class="btn pmd-ripple-effect btn-success btn-block"> أرسل  </button >
+    </form>
+
+</div>
+        </div>
+ 
+
+
+                </div>
+ 
+        
+        
+</div>
+
+                

@@ -1,0 +1,31 @@
+<style>
+    body{
+        background: url(images/splash.png) center center repeat fixed;
+    }
+</style>
+<div class="splash-content mySplash" ng-controller="loginCtrl">
+    
+<div class="splash-logo">
+<img src="images/splash-logo.png" class="img-responsive"  />
+
+<div class="form-group ff" style="margin-top: -20px;">
+    <form method="post" id="myFrm">
+        <h2>تسجيل دخول</h2>
+
+        <div class="form-group pmd-textfield">
+            <input id="mobile" ng-model="mobile"  required="" class="form-control" type="tel" placeholder="رقم الجوال">
+                </div>
+          <div class="form-group pmd-textfield">
+              <input id="password" ng-model="password" required="" class="form-control" type="password" placeholder=" كلمة السر ">
+                </div>
+        <button class="btn pmd-btn-flat btn-success btn-block pmd-ripple-effect" type="submit" ng-click="login()">دخول</button>
+            <a class="btn pmd-btn-flat btn-primary btn-block pmd-ripple-effect text-info" href="#!forget">تذكر كلمة المرور!</a>
+    </form>
+</div>
+</div>
+
+  <div class="copy-right">
+      <a href="#!signup" class="btn pmd-btn-flat btn-primary btn-block pmd-ripple-effect text-info">ليس لديك حساب؟</a>
+  </div>
+    
+</div>

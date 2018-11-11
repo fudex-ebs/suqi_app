@@ -1,0 +1,46 @@
+<div ng-controller="fourmsCtrl">
+
+<div class="dropdown pmd-dropdown clearfix category" style="margin-bottom:15px;">
+      <button  class="btn pmd-ripple-effect btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" 
+               aria-expanded="true"> <span class="caret"></span> اختر قــسم   </button>
+      <ul aria-labelledby="dropdownMenu2" role="menu" class="dropdown-menu">          
+          <li role="presentation" ng-repeat="cat in categories"><a href="#!fourmsByCategory/{{cat.id}}" tabindex="-1" role="menuitem">{{cat.title}}</a></li>           
+      </ul>
+</div>
+    
+    <p class="text-center" ng-show="items.length <1">لم تتم اضافة اى اعلانات فى هذا القسم بعد.</p>
+   
+    
+    <div class="col-xs-12" ng-repeat="item in items">
+    <div class="block_montada">
+        <div class="col-xs-4 pull-right">
+            <img src="{{ imgPath }}/{{ item.profile_image }}" class="imgItm animated" ng-show="item.profile_image != null">
+            <img src="images/logo.png" class="imgItm animated" ng-show="item.profile_image == null">
+            <br/>
+            <span>{{ item.users_full_name }}</span>
+        </div>
+        <div class="col-xs-8 pull-right nopadding">
+            <h3><a href="#!fourm/{{item.forum_id}}">{{ item.forum_title }}</a></h3>
+            <ul class="see_montada">            
+                <li><i class="material-icons dp48">history</i>    منذ: {{ item.forum_created_at | elapsed }}</li>
+                <li><i class="material-icons dp48">remove_red_eye</i> 10</li>
+                <li> <i class="material-icons dp48">comment</i> 0</li>                                                
+            </ul>
+        </div>
+        
+        <div class="col-xs-12">
+            <ul class="see_montada">
+                <li><a class="btn btn-primary btn-sm rep-btn"  href="http://suqi.biz/ar/forum/report/2">الابلاغ عن موضوع</a></li>
+                <li><span class="hand_t"><a href="#"> 22 <i class="material-icons dp48">thumb_down</i></a>  </span></li>
+                <li><span class="hand_t"><a href="#"> 21 <i class="material-icons dp48">thumb_up</i></a>  </span></li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+    
+    
+    
+    
+    
+</div>

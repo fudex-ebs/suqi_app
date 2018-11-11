@@ -1,0 +1,44 @@
+<div ng-controller="addTopicCrtl">
+<h2 class="pmd-card-title-text">{{title}}</h2><br/>
+ 
+
+    <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form card-contint">
+    <div class="pmd-card-title" style="padding-bottom:15px;">
+        
+        
+        <form method="post" id="myFrm" class="adsFrm">
+             <div class="form-group pmd-textfield">       
+                 <label for="dep_id" class="control-label pmd-input-group-label">القسم</label>
+                  <div class="input-group">                        
+                        <select name="dep_id" class="form-control" id="dep_id" ng-model="dep_id"           
+                                ng-init=" cat = categories[1].id"  required="" 
+                        ng-options="cat.id as cat.title for cat in categories">  
+                         <option value="">  اختر قسم     </option>
+                     </select>
+                </div>                
+           </div>
+        <div class="form-group pmd-textfield">
+        <label for="title_topic" class="control-label pmd-input-group-label">عنوان الموضوع</label>
+        <div class="input-group">                
+            <input type="text" required class="form-control" ng-model="title_topic" id="title_topic"></textarea>
+        </div>
+      </div>  
+      <div class="form-group pmd-textfield">
+        <label for="description" class="control-label pmd-input-group-label">محتوى الموضوع</label>
+        <div class="input-group">                
+            <textarea required class="form-control txtarea" ng-model="description" id="description"></textarea>
+            <script>
+        $(document).ready(function() {
+            $('.txtarea').richText();
+        });
+        </script>
+        </div>
+      </div>           
+            <button type="submit" ng-click="insertData()" class="btn pmd-ripple-effect btn-success btn-block"> أضف موضوع   </button >
+    </form>
+
+
+    </div>
+</div>
+
+</div>

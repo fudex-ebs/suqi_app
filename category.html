@@ -1,0 +1,69 @@
+<div ng-controller="categoryCtrl">
+
+<div class="dropdown pmd-dropdown clearfix category" style="margin-bottom:15px;">
+      <button  class="btn pmd-ripple-effect btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" 
+               aria-expanded="true"> <span class="caret"></span> اختر قــسم   </button>
+      <ul aria-labelledby="dropdownMenu2" role="menu" class="dropdown-menu">          
+          <li role="presentation" ng-repeat="cat in categories"><a href="#!category/{{cat.id}}" tabindex="-1" role="menuitem">{{cat.title}}</a></li>           
+      </ul>
+  </div>
+    
+    <p class="text-center" ng-show="items.length <1">لم تتم اضافة اى اعلانات فى هذا القسم بعد.</p>
+    <div class="pmd-card pmd-card-default pmd-z-depth" ng-repeat="item in items">
+  	<!-- Card header -->
+      <div class="pmd-card-title text-right">
+          <span class="pull-left">   {{item.region_region_name}} <i class="material-icons tiny">location_on</i></span>
+          <br/>
+          <div class="media-ava">
+              <a href="javascript:void(0);" class="avatar-list-img pull-right">
+                  <img width="40" height="40" src="{{imgPath}}{{item.users_profile_image}}"  ng-show="item.users_profile_image != null" class="imgItm">
+                  <img width="40" height="40" src="images/logo.png" ng-show="item.users_profile_image == null" class="imgItm">
+              </a>
+              <h3 class="pmd-card-title-text"> {{item.users_full_name}}</h3>
+              <span class="pmd-card-subtitle-text"> منذ: {{item.advertisement_created_at | elapsed}} </span>   
+          </div>
+
+
+
+      </div>
+
+      <!-- Card media -->
+      <div class="pmd-card-media">
+<div class="pic-4">
+    <a href="#!ad_details/{{item.advertisement_id}}">
+        <img class="img-responsive animated zoomIn" src="{{imgPath}}{{item.advertisement_img_url}}" ng-show="item.advertisement_img_url != null">
+        <img class="img-responsive animated zoomIn" src="images/logo.png" ng-show="item.advertisement_img_url == null">
+    </a>
+</div>
+<div class="text-8">
+    <h3><a href="#!ad_details/{{item.advertisement_id}}"><u>{{item.advertisement_title}}</u></a></h3>    
+    <p>{{item.advertisement_description | strpTags | limitTo : 50}} ..</p>
+    
+</div>
+      </div>
+
+      <!-- Card body -->
+
+      <div class="clearfix"></div>
+      <!-- Card actions -->
+      <div class="pmd-card-actions clearfix">
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button"> 50 <i class="material-icons tiny">thumb_up</i></button>
+        <!--<button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button"> 3 <i class="material-icons tiny">thumb_down</i></button>-->
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right" type="button"> 10 <i class="material-icons tiny">comment</i></button>
+          <a href="javascript:void(0);" class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-right"  ng-click="addToFav(item.advertisement_id)"> 3 <i class="material-icons tiny">favorite</i></a>
+          
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-left" type="button" ng-show="item.advertisement_img_url == null"
+                ng-click="shareLink(item.advertisement_title,item.advertisement_id);"> شارك <i class="material-icons tiny">share</i></button>            
+                
+        <button class="btn pmd-btn-flat pmd-ripple-effect btn-primary pull-left" type="button" ng-show="item.advertisement_img_url != null"
+                ng-click="shareLinkImg(item.advertisement_title,item.advertisement_id,item.advertisement_img_url);"> شارك <i class="material-icons tiny">share</i></button>                
+    
+      </div>
+
+  </div>
+    
+    
+    
+    
+    
+</div>

@@ -1,0 +1,79 @@
+<div ng-controller="profileCtr">
+    
+<div class="clearfix" style="background:#fff; margin-bottom:15px; padding:15px" >
+
+      <div class="media-ava">
+            <a href="#!update_profile" class="avatar-list-img pull-right">
+                <img width="40" height="40" src="{{imgPath}}/{{loged_user.profile_image}}" class="imgItm animated zoomIn" ng-show="loged_user.profile_image != null">
+                <img width="40" height="40" src="images/logo.png" class="imgItm animated zoomIn" ng-show="loged_user.profile_image == null">
+            </a>
+            <h3 class="pmd-card-title-text">   {{loged_user.full_name}}  </h3>
+            <!--<span class="pmd-card-subtitle-text"> منذ: ساعة </span>-->
+            <a href="#!update_profile" class="btn pmd-ripple-effect btn-primary pull-left" style="top:-14px;"> تعديل </a >
+
+        </div>
+</div>
+
+<div class="clearfix" style="background:#fff; margin-bottom:15px;" >
+
+<div class="col-xs-12">
+<h2> اعلاناتى </h2>
+</div>
+
+    <p class="text-center" ng-show="items.length <1">لم تتم اضافة اى اعلانات فى هذا القسم بعد.</p>
+    <div class="col-xs-6 small-item" ng-repeat="item in items">
+<div class="pmd-card pmd-card-default pmd-z-depth">
+    <div class="pmd-card-media">
+        <a href="#!ad_details/{{item.advertisement_id}}">
+            <img width="1184" height="666" class="img-responsive animated zoomIn" src="{{imgPath}}/{{item.advertisement_img_url}}" ng-show="item.advertisement_img_url != null">
+            <img width="1184" height="666" class="img-responsive animated zoomIn" src="images/logo.png" ng-show="item.advertisement_img_url == null">
+        </a>
+    </div>
+    <div class="pmd-card-title clearfix itm1">
+        <h3 class="pmd-card-title-text"><a href="#!ad_details/{{item.advertisement_id}}"> {{item.advertisement_title}}
+</h3>
+        <span class="pmd-card-subtitle-text"> {{ item.departements_title }} </span>
+        <span class="pull-right region">  {{ item.region_region_name }} <i class="material-icons tiny">location_on</i></span>
+    </div>
+</div>
+</div>
+ 
+
+</div>
+
+<div class="clearfix" style="background:#fff;" >
+
+<div class="col-xs-12">
+<h2> الجروبات </h2>
+</div>
+
+<div class="col-xs-6 small-item">
+<div class="pmd-card pmd-card-default pmd-z-depth">
+    <div class="pmd-card-media">
+        <img width="1184" height="666" class="img-responsive" src="http://propeller.in/assets/images/profile-pic.png">
+    </div>
+    <div class="pmd-card-title clearfix">
+        <h3 class="pmd-card-title-text"><a href="#">دار الشرقية للمقاولات
+</h3>
+        <span class="pmd-card-subtitle-text">النشاط : المقاولات</span>
+        <span class="pull-right">  الرياض <i class="material-icons tiny">location_on</i></span>
+    </div>
+</div>
+</div>
+<div class="col-xs-6 small-item">
+<div class="pmd-card pmd-card-default pmd-z-depth">
+    <div class="pmd-card-media">
+        <img width="1184" height="666" class="img-responsive" src="http://propeller.in/assets/images/profile-pic.png">
+    </div>
+    <div class="pmd-card-title clearfix">
+      <h3 class="pmd-card-title-text"><a href="#">Title goes hereclearfix</h3>
+        <span class="pmd-card-subtitle-text">Secondary text</span>
+        <span class="pull-right">  الرياض <i class="material-icons tiny">location_on</i></span>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+</div>
